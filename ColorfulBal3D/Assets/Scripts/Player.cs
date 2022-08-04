@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public GameObject vectorForward;
     public GameObject vectorBack;
     public CameraShake CameraShake;
+    public UIManager uiManager;
 
     public void Start()
     {
@@ -55,6 +56,7 @@ public class Player : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Obstacles")) {
             CameraShake.ShakeCamera();
+            uiManager.StartCoroutine("WhiteEffect");
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
             foreach (GameObject item in fractureItems)
             {
